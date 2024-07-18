@@ -1,7 +1,7 @@
 <WeatherCard>:
     padding:  4
     size_hint: (0.9, 1)
-    pos_hint: {"center_x": 0.5  "canter_y": 0.5 }
+    pos_hint: {"center_x": 0.5  , "center_y": 0.5 }
     MDBoxLayout:
         size_hint: (1,1)
         orientation: "vertical"
@@ -14,24 +14,29 @@
             id: temp
             text: '25°C'
             font_style: 'H3'
-            halign: 'cente'
+            halign: 'center'
         MDLabel:
             id: temp_like
-            text: 'відчувається як 30°C'°
+            text: 'Відчувається як 30°C'
             font_style: 'Subtitle1'
-            halign: 'cente'
-            MDLabel:
+            halign: 'center'
+        MDLabel:
             id: wind_speed
-            text: 'вітер
+            text: "вітер: 5 м/с"
         
-            font_style: 'Subtitle1'
-            halign: 'cente'
+            font_style: 'Body1'
+        MDLabel:
+            id: humidity
+            text: "Вологість: 50%"
+        
+            font_style: 'Body1'
 <HomeScreen>:
-
-
+  
+ 
     MDBoxLayout:
         orientation: "vertical"
-
+        size_hint: (1,1)
+        spacing: "20sp"
         MDTopAppBar:
             title: "my weather"
         
@@ -48,13 +53,15 @@
                 size_hint: (1, None)
                 height:  '40sp'
                 MDTextField:
+                    id:  city_name
                     hint_text: "Введіть місто"
                     mode: "fill"
                 MDIconButton:
+                    id: search_btn
                     icon: "magnify"
                     md_bg_color: "#602b7a"
                     on_press: root.search()
-    `       MDCarousel:
+            MDCarousel:
                 id: weather_carousel
                 direction:    'right'
                 size_hint: (1, 0.5)
