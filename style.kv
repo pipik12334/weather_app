@@ -1,25 +1,63 @@
+<WeatherCard>:
+    padding:  4
+    size_hint: (0.9, 1)
+    pos_hint: {"center_x": 0.5  "canter_y": 0.5 }
+    MDBoxLayout:
+        size_hint: (1,1)
+        orientation: "vertical"
+        spacing: "20sp"
+        AsyncImage:
+            id: image   
+            source: 'https://openweathermap.org/img/wn/10d@2x.png'
+            size: ('150sp', '150sp')
+        MDLabel:
+            id: temp
+            text: '25°C'
+            font_style: 'H3'
+            halign: 'cente'
+        MDLabel:
+            id: temp_like
+            text: 'відчувається як 30°C'°
+            font_style: 'Subtitle1'
+            halign: 'cente'
+            MDLabel:
+            id: wind_speed
+            text: 'вітер
+        
+            font_style: 'Subtitle1'
+            halign: 'cente'
 <HomeScreen>:
+
+
     MDBoxLayout:
         orientation: "vertical"
 
         MDTopAppBar:
             title: "my weather"
-
-
+        
         MDBoxLayout:
-            padding: "20sp"
-            spacing: "20sp"
-            MDTextField:
-                hint_text: "Введіть місто"
-                mode: "fill"
-            MDIconButton:
-                icon: "magnify"
-                md_bg_color: "#602b7a"
+            orientation: 'vertical'
+            size_hint: (1, 0.7)
+            spacing: '20sp'
+            pos_hint: {'center_x': 0.5}
+            padding: [0,'30sp',0, 0]
 
-
-        MDLabel:
-            text: "Content"
-            halign: "center"
-
-
+            MDBoxLayout:
+                padding: "20sp"
+                spacing: "20sp"
+                size_hint: (1, None)
+                height:  '40sp'
+                MDTextField:
+                    hint_text: "Введіть місто"
+                    mode: "fill"
+                MDIconButton:
+                    icon: "magnify"
+                    md_bg_color: "#602b7a"
+                    on_press: root.search()
+    `       MDCarousel:
+                id: weather_carousel
+                direction:    'right'
+                size_hint: (1, 0.5)
+                WeatherCard:
+        
 
